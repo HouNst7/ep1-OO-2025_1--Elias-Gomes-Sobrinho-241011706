@@ -73,7 +73,7 @@ public class GerenciadorAlunos {
                     listaAlunos.add(aluno);
                 }
             }
-            System.out.println("Alunos carregados do arquivo.");
+
         } catch (java.io.FileNotFoundException e) { //Exibe esta mensagem caso não haja arquivo
             System.out.println("Arquivo de alunos ainda não existe. Nenhum dado carregado.");
         } catch (Exception e) {

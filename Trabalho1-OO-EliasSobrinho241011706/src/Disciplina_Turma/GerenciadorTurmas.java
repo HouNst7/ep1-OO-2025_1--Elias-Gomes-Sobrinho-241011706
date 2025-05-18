@@ -1,5 +1,6 @@
 package Disciplina_Turma;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
@@ -29,4 +30,29 @@ public class GerenciadorTurmas {
             System.out.println((i+1) + ". " + turmas.get(i));
         }
     }
+    public static void salvarTurmasTXT(String caminho) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(caminho))) {
+            for (Turma t : turmas) {
+                bw.write(t.toCSV());
+                bw.newLine();
+            }
+        } catch (IOException e) {
+            System.out.println("Erro ao salvar turmas: " + e.getMessage());
+        }
+    }
+
+    public static void carregarTurmasTXT(String caminho) {
+        try (BufferedReader br = new BufferedReader(new FileReader(caminho))) {
+            String linha;
+            while ((linha = br.readLine()) != null) {
+                Turma t = Turma.fromCSV(linha);
+                if (t != null) {
+                    turmas.add(t);
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Erro ao carregar turmas: " + e.getMessage());
+        }
+    }
+
 }

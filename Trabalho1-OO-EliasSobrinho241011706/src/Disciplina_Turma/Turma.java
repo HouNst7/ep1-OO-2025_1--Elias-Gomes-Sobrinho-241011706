@@ -47,4 +47,16 @@ public class Turma {
                 ", Vagas: " + alunosMatriculados.size() + "/" + maximoAlunos;
     }
 
+    public String toCSV() {
+        return disciplina.getCodigo() + ";" + professor + ";" + semestre + ";" + maximoAlunos;
+    }
+
+    public static Turma fromCSV(String linha) {
+        String[] partes = linha.split(";");
+        Disciplina d = GerenciadorDisciplinas.buscarPorCodigo(partes[0]);
+        if (d == null) return null; // para remover turmas com disciplina inexistente
+
+        return new Turma(d, partes[1], partes[2], Integer.parseInt(partes[3]));
+    }
+
 }

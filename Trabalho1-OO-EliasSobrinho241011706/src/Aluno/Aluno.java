@@ -6,59 +6,76 @@ import java.util.List;
 //Molde base dos Alunos (Classe Aluno)
 
 public class Aluno {
-
     protected String nome;
     protected String matricula;
     protected String curso;
-    protected List<String> disciplinasMatriculadas = new ArrayList<>();
-    //Uso de atributos protected pois são visíveis para os arquivos deste Package, e "invisíveis para o resto"
-    private List<String> disciplinasTrancadas = new ArrayList<>();
-    private boolean semestreTrancado = false;
+    protected List<String> disciplinasMatriculadas; // Armazena códigos das disciplinas
 
-    //Entidade ALuno (Construtor)
     public Aluno(String nome, String matricula, String curso) {
         this.nome = nome;
         this.matricula = matricula;
         this.curso = curso;
-    }
-
-    //Função matricular que vai estar adicionando à disciplinasMatriculadas o código da Disciplina
-    public void matricular(String codigoDisciplina) {
-        disciplinasMatriculadas.add(codigoDisciplina);
+        this.disciplinasMatriculadas = new ArrayList<>();
     }
 
     //Getters
-    public String getMatricula() {
-        return matricula;
-    }
-
     public String getNome() {
         return nome;
     }
-
+    public String getMatricula() {
+        return matricula;
+    }
     public String getCurso() {
         return curso;
     }
-    //Funções para as Disciplinas
-    public void trancarDisciplina(String codigo) {
-        if (disciplinasMatriculadas.contains(codigo)) {
-            disciplinasMatriculadas.remove(codigo);
-            disciplinasTrancadas.add(codigo);
-            System.out.println("Disciplina trancada: " + codigo);
-        } else {
-            System.out.println("Aluno não está matriculado nesta disciplina, portanto não há como trancar.");
+    public List<String> getDisciplinasMatriculadas() {
+        return disciplinasMatriculadas;
+    }
+
+    //Metodo para matrícula
+    public void matricular(String codigoDisciplina) {
+        if (!disciplinasMatriculadas.contains(codigoDisciplina)) {
+            disciplinasMatriculadas.add(codigoDisciplina);
         }
     }
 
+    //Metodo para trancar disciplina específica
+    public void trancarDisciplina(String codigoDisciplina) {
+        disciplinasMatriculadas.remove(codigoDisciplina);
+        System.out.println("Disciplina " + codigoDisciplina + " trancada com sucesso.");
+    }
+
+    //Metodo para trancar semestre inteiro (todas as disciplinas)
     public void trancarSemestre() {
-        semestreTrancado = true;
-        disciplinasTrancadas.addAll(disciplinasMatriculadas);
         disciplinasMatriculadas.clear();
-        System.out.println("Semestre trancado. Todas as disciplinas foram trancadas.");
+        System.out.println("Semestre trancado. Todas as disciplinas foram removidas.");
     }
 
-    public boolean isSemestreTrancado() {
-        return semestreTrancado;
+    //Metodo para verificar pré-requisitos (ainda não disponível)
+    public boolean possuiPreRequisitos(List<String> prerequisitos) {
+        return disciplinasMatriculadas.containsAll(prerequisitos);
     }
 
+    @Override
+    public String toString() {
+        return nome + " - " + matricula + " - " + curso +
+                "\nDisciplinas matriculadas: " + disciplinasMatriculadas;
+    }
+
+    //Gera a linha CSV para os dados do aluno
+    public String toCSV() {
+        return nome + ";" + matricula + ";" + curso + ";" + String.join(",", disciplinasMatriculadas);
+    }
+
+    public static Aluno fromCSV(String linha) {
+        String[] partes = linha.split(";");
+        Aluno aluno = new Aluno(partes[0], partes[1], partes[2]);
+        if (partes.length > 3 && !partes[3].isEmpty()) {
+            String[] disciplinas = partes[3].split(",");
+            for (String d : disciplinas) {
+                aluno.matricular(d);
+            }
+        }
+        return aluno;
+    }
 }

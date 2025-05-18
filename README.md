@@ -19,15 +19,27 @@ O enunciado do trabalho pode ser encontrado aqui:
 ## Instruções para Compilação e Execução
 
 1. **Compilação:**  
+   javac Main.java
    [Descrever aqui como compilar o projeto. Exemplo: `javac Main.java` ou o script usado]
 
 2. **Execução:**  
+   Abrir a pasta SRC, clicar na Main e compilar.
    [Descrever aqui como executar o projeto. Exemplo: `java Main` ou o script usado]
 
 3. **Estrutura de Pastas:**  
    [Descrever aqui as principais pastas do projeto]
+   src/
+   ├── Main.java
+   ├── Aluno/
+   │   ├── Aluno.java
+   │   ├── AlunoEspecial.java
+   │   └── GerenciadorAlunos.java
+   ├── Avaliacao_Frequencia/
+   ├── Disciplina_Turma/
+   ├── UtilidadesEAfins/
 
-3. **Versão do JAVA utilizada:**  
+
+4. **Versão do JAVA utilizada:**  
    [Java 21]
 
 ---
@@ -59,7 +71,7 @@ O enunciado do trabalho pode ser encontrado aqui:
 - [ ] Lançamento de notas e controle de presença
 - [ ] Cálculo de média final e verificação de aprovação/reprovação
 - [ ] Relatórios de desempenho acadêmico por aluno, turma e disciplina
-- [ ] Persistência de dados em arquivos (.txt ou .csv)
+- [✓] Persistência de dados em arquivos (.txt ou .csv)
 - [ ] Tratamento de duplicidade de matrículas
 - [ ] Uso de herança, polimorfismo e encapsulamento
 
@@ -73,4 +85,4 @@ O enunciado do trabalho pode ser encontrado aqui:
 
 ## Contato
 
-- [Opcional: E-mail pessoal do aluno.]
+- [241011706@aluno.unb.br]

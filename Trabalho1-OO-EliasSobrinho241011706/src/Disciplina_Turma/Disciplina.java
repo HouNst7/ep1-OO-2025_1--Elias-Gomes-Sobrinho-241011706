@@ -40,4 +40,21 @@ public class Disciplina {
     public String toString() {
         return nome + " (" + codigo + ")";
     }
+
+    //Para salvar os dados das disciplinas
+    public String toCSV() {
+        return nome + ";" + codigo + ";" + cargaHoraria + ";" + String.join(",", preRequisitos);
+    }
+
+    public static Disciplina fromCSV(String linha) {
+        String[] partes = linha.split(";");
+        Disciplina d = new Disciplina(partes[0], partes[1], Integer.parseInt(partes[2]));
+        if (partes.length > 3 && !partes[3].isEmpty()) {
+            String[] prereqs = partes[3].split(",");
+            for (String p : prereqs) {
+                d.addPreRequisito(p);
+            }
+        }
+        return d;
+    }
 }
