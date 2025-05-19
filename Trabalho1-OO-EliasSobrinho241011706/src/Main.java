@@ -36,6 +36,7 @@ public class Main {
                         System.out.println("4. Matricular aluno em disciplina");
                         System.out.println("5. Trancar disciplina");
                         System.out.println("6. Trancar semestre");
+                        System.out.println("7. Editar aluno");
                         System.out.println("0. Voltar ao menu principal");
                         int opcao = scanner.nextInt();
                         scanner.nextLine();
@@ -103,12 +104,38 @@ public class Main {
                                     aluno.trancarSemestre();
                                 }
                                 break;
+                            //Case para ativar a opção de editar o aluno
+                            case 7:
+                                System.out.print("Entre a matrícula do aluno que deseja alterar os dados: ");
+                                matricula = scanner.nextLine();
+                                aluno = GerenciadorAlunos.buscarPorMatricula(matricula);
+                                if (aluno == null) {
+                                    System.out.println("Aluno não encontrado.");
+                                    break;
+                                }
 
+                                System.out.println("Aluno a ser editado: " + aluno.getNome() + " - " + aluno.getCurso());
+
+                                System.out.print("Escreva o novo nome (aperte enter caso não deseje alterar): ");
+                                String novoNome = scanner.nextLine();
+                                if (!novoNome.isEmpty()) {
+                                    aluno.setNome(novoNome);
+                                }
+
+                                System.out.print("Escreva o novo curso (aperte enter caso não deseje alterar): ");
+                                String novoCurso = scanner.nextLine();
+                                if (!novoCurso.isEmpty()) {
+                                    aluno.setCurso(novoCurso);
+                                }
+
+                                System.out.println("Dados do aluno atualizados.");
+                                break;
+                            //Sai do modo aluno e retorna ao menu principal
                             case 0:
                                 modoAluno = false;
                                 break;
                             default:
-                                System.out.println("Opção inválida, por favor, digite um número válido (1 a 6).");
+                                System.out.println("Opção inválida, por favor, digite um número válido (1 a 7).");
                         }
                     }
                     break;

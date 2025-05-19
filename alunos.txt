@@ -1,1 +1,2 @@
 ;Teste1;20251;Software
+;Teste2*;20252;Automobilistica

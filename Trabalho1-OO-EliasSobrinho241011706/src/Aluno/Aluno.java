@@ -56,6 +56,15 @@ public class Aluno {
         return disciplinasMatriculadas.containsAll(prerequisitos);
     }
 
+    //Função de editar nome e curso
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setCurso(String curso) {
+        this.curso = curso;
+    }
+
     @Override
     public String toString() {
         return nome + " - " + matricula + " - " + curso +
