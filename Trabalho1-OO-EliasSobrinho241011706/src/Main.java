@@ -12,6 +12,7 @@ public class Main {
         GerenciadorAlunos.carregarAlunosTXT("alunos.txt");
         GerenciadorDisciplinas.carregarDisciplinasTXT("disciplinas.txt");
         GerenciadorTurmas.carregarTurmasTXT("turmas.txt");
+        GerenciadorTurmas.carregarMatriculasTXT("matriculas.txt");
 
         //Variáveis a serem reutilizadas em vários cases (estava declarando em todos, portanto dava erro)
         String matricula;
@@ -57,11 +58,11 @@ public class Main {
 
                                 GerenciadorAlunos.cadastrarAluno(novoAluno); //Guarda as informacoes do aluno
                                 break;
-
+                            //Listar os alunos
                             case 3:
                                 GerenciadorAlunos.listarAlunos();
                                 break;
-
+                            //Matricular aluno em Disciplina
                             case 4:
                                 System.out.print("Matrícula do aluno: ");
                                 matricula = scanner.nextLine();
@@ -71,7 +72,7 @@ public class Main {
                                     break;
                                 }
 
-                                GerenciadorTurmas.listarTurmas();
+                                GerenciadorTurmas.listarTurmas1(scanner);
                                 System.out.print("Digite o código da disciplina para matrícula: ");
                                 String codigo = scanner.nextLine();
 
@@ -207,7 +208,7 @@ public class Main {
                                 break;
 
                             case 4:
-                                GerenciadorTurmas.listarTurmas();
+                                GerenciadorTurmas.listarTurmas2(scanner);
                                 break;
 
                             case 0:
@@ -223,6 +224,7 @@ public class Main {
                     GerenciadorAlunos.salvarAlunosTXT("alunos.txt");
                     GerenciadorDisciplinas.salvarDisciplinasTXT("disciplinas.txt");
                     GerenciadorTurmas.salvarTurmasTXT("turmas.txt");
+                    GerenciadorTurmas.salvarMatriculasTXT("matriculas.txt");
                     System.out.println("Saindo do sistema");
                     rodando = false;
                     break;

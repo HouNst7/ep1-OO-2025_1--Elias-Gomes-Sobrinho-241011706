@@ -1,5 +1,6 @@
 package Aluno;
 
+import Disciplina_Turma.Turma;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +38,19 @@ public class GerenciadorAlunos {
             }
         }
         return null; //Caso de não corresponder
+    }
+
+    //Função para listar os alunos matriculados na turma
+    public static void listarAlunosDaTurma(Turma turma) {
+        List<Aluno> alunos = turma.getAlunosMatriculados();
+        if (alunos.isEmpty()) {
+            System.out.println("Nenhum aluno matriculado nesta turma.");
+        } else {
+            System.out.println("Alunos matriculados na turma:");
+            for (Aluno a : alunos) {
+                System.out.println("- " + a.getNome() + " (" + a.getMatricula() + ")");
+            }
+        }
     }
 
     //Funcao para salvar os dados dos alunos
