@@ -1,3 +1,2 @@
-2025222;Bernardini;2025.1;32
-2025222;Bernardini;2025.1;32
-2025777;Iboaventura;2025.1;45
+8888;Vanessa;2025.1;32;true;S2;14 horas
+8888;Vanessa;2025.1;32;true;S4;16 horas

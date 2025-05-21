@@ -2,8 +2,8 @@ package Disciplina_Turma;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.List;
+import java.util.Scanner;
 
 //importando as informações do package aluno para realizar matriculas
 import Aluno.*;
@@ -22,7 +22,7 @@ public class GerenciadorTurmas {
 
     public static Turma buscarCodigoTurma(String codigoDisciplina){
         for (Turma turma : turmas) {
-            if (turma.getDisciplina().getCodigo().equalsIgnoreCase(codigoDisciplina)){ //EqualsIgnoreCase é pra aceitar tanto minúsculas quanto maiúsculas
+            if (turma.getDisciplina().getCodigo().equalsIgnoreCase(codigoDisciplina)){
                 return turma;
             }
         }
@@ -55,9 +55,61 @@ public class GerenciadorTurmas {
             }
 
             System.out.print("Pressione Enter para voltar ao menu...");
-            scanner.nextLine(); // Aguarda para retornar
+            scanner.nextLine();
         }
     }
+
+    //Função para criar as Turmas atualizado com as opções que faltavamm
+    public static void criarNovaTurma(Scanner scanner) {
+        System.out.print("Digite o código da disciplina: ");
+        String codigo = scanner.nextLine();
+        Disciplina disciplina = GerenciadorDisciplinas.buscarPorCodigo(codigo);
+
+        if (disciplina == null) {
+            System.out.println("Disciplina não encontrada.");
+            return;
+        }
+
+        System.out.print("Digite o nome do professor: ");
+        String professor = scanner.nextLine();
+
+        System.out.print("Digite o semestre: ");
+        String semestre = scanner.nextLine();
+
+        System.out.print("Digite o número máximo de alunos: ");
+        int maximoAlunos = Integer.parseInt(scanner.nextLine());
+
+        System.out.print("A turma será presencial? (s/n): ");
+        String tipo = scanner.nextLine().trim().toLowerCase();
+        boolean presencial = tipo.equals("s");
+
+        String sala = "Remoto";
+        if (presencial) {
+            System.out.print("Digite a sala da turma: ");
+            sala = scanner.nextLine();
+        }
+
+        System.out.print("Digite o horário da aula (ex: Segundas 10h-12h): ");
+        String horario = scanner.nextLine();
+
+        Turma novaTurma = new Turma(disciplina, professor, semestre, maximoAlunos, presencial, sala, horario);
+        adicionarTurma(novaTurma);
+
+        System.out.println("Turma criada com sucesso!");
+    }
+
+    //Função para verificar se já existe uma turma no mesmo horário
+    public static boolean existeTurmaMesmoHorario(Disciplina disciplina, String semestre, String horario) {
+        for (Turma t : turmas) {
+            if (t.getDisciplina().getCodigo().equals(disciplina.getCodigo()) &&
+                    t.getSemestre().equalsIgnoreCase(semestre) &&
+                    t.getHorario().equalsIgnoreCase(horario)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     //Funções para salvar os dados das Turmas e dos alunos cadastrados
     public static void salvarTurmasTXT(String caminho) {
@@ -120,5 +172,4 @@ public class GerenciadorTurmas {
             System.out.println("Erro ao carregar matrículas: " + e.getMessage());
         }
     }
-
 }
