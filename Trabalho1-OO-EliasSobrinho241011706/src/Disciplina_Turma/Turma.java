@@ -1,8 +1,9 @@
 package Disciplina_Turma;
 
 import Aluno.Aluno;
-import java.util.ArrayList;
-import java.util.List;
+import Avaliacao_Frequencia.*;
+import java.util.*;
+import static Aluno.GerenciadorAlunos.buscarPorMatricula;
 
 public class Turma {
     private Disciplina disciplina;
@@ -13,9 +14,17 @@ public class Turma {
     private boolean presencial;
     private String sala;
     private String horario;
+    private AvaliacaoTipo tipoAvaliacao;
+    private Map<String, GerenciadorPerfomanceAluno> GerenciadorPerfomanceAlunos;
+
+    private Map<Aluno, GerenciadorPerfomanceAluno> desempenhoPorAluno = new HashMap<>();
+
+    public Map<Aluno, GerenciadorPerfomanceAluno> getDesempenhoPorAluno() {
+        return desempenhoPorAluno;
+    }
 
 
-    public Turma(Disciplina disciplina, String professor, String semestre, int maximoAlunos, boolean presencial, String sala, String horario) {
+    public Turma(Disciplina disciplina, String professor, String semestre, int maximoAlunos, boolean presencial, String sala, String horario, AvaliacaoTipo tipoAvaliacao) {
         this.disciplina = disciplina;
         this.professor = professor;
         this.semestre = semestre;
@@ -24,8 +33,9 @@ public class Turma {
         this.sala = presencial ? sala : "Remoto";  // só terá sala se for presencial
         this.horario = horario;
         this.alunosMatriculados = new ArrayList<>();
+        this.tipoAvaliacao = tipoAvaliacao;
+        this.GerenciadorPerfomanceAlunos = new HashMap<>();
     }
-
 
     //Funcao para matricular aluno ou não (caso esteja lotada)
     public boolean matricularAluno(Aluno aluno) {
@@ -37,6 +47,12 @@ public class Turma {
         alunosMatriculados.add(aluno);
         aluno.matricular(disciplina.getCodigo());
         return true;
+    }
+
+    //Getters e setters
+
+    public AvaliacaoTipo getTipoAvaliacao() {
+        return tipoAvaliacao;
     }
 
     public Disciplina getDisciplina() {
@@ -66,18 +82,19 @@ public class Turma {
     //Saida em texto das informações da Disciplina
     @Override
     public String toString() {
-        return "Turma de " + disciplina.getNome() + " (" + disciplina.getCodigo() + "), " +
+        return "Disciplina de " + disciplina.getNome() + " (Código: " + disciplina.getCodigo() + "), " +
                 "Professor: " + professor + ", Semestre: " + semestre +
                 ", Tipo: " + (presencial ? "Presencial" : "Remota") +
                 (presencial ? ", Sala: " + sala : "") +
                 ", Horário: " + horario +
-                ", Vagas: " + alunosMatriculados.size() + "/" + maximoAlunos;
+                ", Vagas: " + alunosMatriculados.size() + "/" + maximoAlunos
+                + ", Avaliação tipo: " + tipoAvaliacao;
     }
 
     //Divide as informações e as lista em partes
     public static Turma fromCSV(String linha) {
         String[] partes = linha.split(";");
-        if (partes.length < 7) return null;
+        if (partes.length < 8) return null;
         Disciplina d = GerenciadorDisciplinas.buscarPorCodigo(partes[0]);
         if (d == null) return null;
 
@@ -87,8 +104,9 @@ public class Turma {
         boolean presencial = Boolean.parseBoolean(partes[4]);
         String sala = partes[5];
         String horario = partes[6];
+        AvaliacaoTipo tipoAvaliacao = AvaliacaoTipo.valueOf(partes[7]);
 
-        return new Turma(d, professor, semestre, maximoAlunos, presencial, sala, horario);
+        return new Turma(d, professor, semestre, maximoAlunos, presencial, sala, horario, tipoAvaliacao);
     }
 
     public String toCSV() {
@@ -98,6 +116,7 @@ public class Turma {
                 maximoAlunos + ";" +
                 presencial + ";" +
                 sala + ";" +
-                horario;
+                horario + ";" +
+                tipoAvaliacao.name();
     }
 }

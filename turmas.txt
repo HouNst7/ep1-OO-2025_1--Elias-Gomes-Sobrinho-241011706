@@ -1,2 +1,2 @@
-8888;Vanessa;2025.1;32;true;S2;14 horas
-8888;Vanessa;2025.1;32;true;S4;16 horas
+8888;Vanessa;2025.1;32;true;S2;14h;SIMPLES
+8888;Vanessa;2025.1;32;true;S4;16h;SIMPLES

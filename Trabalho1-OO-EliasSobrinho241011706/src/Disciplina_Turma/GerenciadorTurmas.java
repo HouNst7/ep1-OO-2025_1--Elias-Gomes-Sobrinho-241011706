@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 //importando as informações do package aluno para realizar matriculas
 import Aluno.*;
+import Avaliacao_Frequencia.*;
 import static Aluno.GerenciadorAlunos.listarAlunosDaTurma;
 
 public class GerenciadorTurmas {
@@ -92,7 +93,18 @@ public class GerenciadorTurmas {
         System.out.print("Digite o horário da aula (ex: Segundas 10h-12h): ");
         String horario = scanner.nextLine();
 
-        Turma novaTurma = new Turma(disciplina, professor, semestre, maximoAlunos, presencial, sala, horario);
+        System.out.print("Digite o tipo de avaliação (SIMPLES ou PONDERADA): ");
+        String tipoAvaliacaoInput = scanner.nextLine().trim().toUpperCase();
+
+        AvaliacaoTipo tipoAvaliacao;
+        try {
+            tipoAvaliacao = AvaliacaoTipo.valueOf(tipoAvaliacaoInput);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Tipo de avaliação inválido. Então será usado o tipo SIMPLES como padrão.");
+            tipoAvaliacao = AvaliacaoTipo.SIMPLES;
+        }
+
+        Turma novaTurma = new Turma(disciplina, professor, semestre, maximoAlunos, presencial, sala, horario, tipoAvaliacao);
         adicionarTurma(novaTurma);
 
         System.out.println("Turma criada com sucesso!");
