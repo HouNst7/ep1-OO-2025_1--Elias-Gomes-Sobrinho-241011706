@@ -1,2 +1,3 @@
 ;Teste1;20251;Software
 ;Teste2*;20252;Automobilistica
+;Elias Gomes Sobrinho;241011706;Engenharias

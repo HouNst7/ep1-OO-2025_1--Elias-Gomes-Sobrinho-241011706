@@ -57,7 +57,7 @@ public class GerenciadorPerfomanceAluno {
         double media = calcularMediaFinal(aluno, turma);
         double freq = obterFrequencia(aluno, turma);
 
-        if (media >= 7.0 && freq >= 75.0) return "Aprovado";
+        if (media >= 5.0 && freq >= 75.0) return "Aprovado";
         else if (freq < 75.0) return "Reprovado por Frequência";
         else return "Reprovado por Nota";
     }
