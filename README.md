@@ -1,12 +1,3 @@
-# Sistema Acadêmico - FCTE
-
-## Descrição do Projeto
-
-Desenvolvimento de um sistema acadêmico para gerenciar alunos, disciplinas, professores, turmas, avaliações e frequência, utilizando os conceitos de orientação a objetos (herança, polimorfismo e encapsulamento) e persistência de dados em arquivos.
-
-O enunciado do trabalho pode ser encontrado aqui:
-- [Trabalho 1 - Sistema Acadêmico](https://github.com/lboaventura25/OO-T06_2025.1_UnB_FCTE/blob/main/trabalhos/ep1/README.md)
-
 ## Dados do Aluno
 
 - **Nome completo:** [Elias Gomes Sobrinho]
@@ -31,32 +22,33 @@ O enunciado do trabalho pode ser encontrado aqui:
 
 4. **Estrutura de Pastas:**  
 
-ep1-OO-2025_1--Elias-Gomes-Sobrinho-241011706/
-├── .idea/ # Configurações do IntelliJ IDEA
-├── out/ # Arquivos compilados
-├── Trabalho1-OO-EliasSobrinho241011706/
-│ ├── src/
-│ │ ├── Main.java
-│ │ ├── Aluno/
-│ │ │ ├── Aluno.java
-│ │ │ ├── AlunoEspecial.java
-│ │ │ └── GerenciadorAlunos.java
-│ │ ├── Avaliacao_Frequencia/
-│ │ │ ├── Avaliacao.java
-│ │ │ ├── Frequencia.java
-│ │ │ ├── GerenciadorPerformanceAluno.java
-│ │ │ └── AvaliacaoTipo.java (enum)
-│ │ └── Disciplina_Turma/
-│ │ ├── Disciplina.java
-│ │ ├── GerenciadorDisciplinas.java
-│ │ ├── GerenciadorTurmas.java
-│ │ └── Turma.java
-├── alunos.txt # Arquivo de dados dos alunos
-├── avaliacoes.txt # Arquivo de dados de avaliações
-├── disciplinas.txt # Arquivo de dados das disciplinas
-├── matriculas.txt # Arquivo de dados de matrículas
-├── turmas.txt # Arquivo de dados das turmas
-└── README.md # Este arquivo
+ep1-OO-2025_1--Elias-Gomes-Sobrinho-241011706/  
+├── .idea/ # Configurações do IntelliJ IDEA  
+├── out/ # Arquivos compilados  
+├── Trabalho1-OO-EliasSobrinho241011706/  
+│ ├── src/  
+│ │ ├── Main.java  
+│ │ ├── Aluno/  
+│ │ │ ├── Aluno.java  
+│ │ │ ├── AlunoEspecial.java  
+│ │ │ └── GerenciadorAlunos.java  
+│ │ ├── Avaliacao_Frequencia/  
+│ │ │ ├── Avaliacao.java  
+│ │ │ ├── Frequencia.java  
+│ │ │ ├── GerenciadorPerformanceAluno.java  
+│ │ │ └── AvaliacaoTipo.java (enum)  
+│ │ ├── Disciplina_Turma/  
+│ │ │ ├── Disciplina.java  
+│ │ │ ├── GerenciadorDisciplinas.java  
+│ │ │ ├── GerenciadorTurmas.java  
+│ │ │ └── Turma  
+│ │ ├── UtilidadesEAfins/  
+├── alunos.txt # Arquivo de dados dos alunos  
+├── avaliacoes.txt # Arquivo de dados de avaliações  
+├── disciplinas.txt # Arquivo de dados das disciplinas  
+├── matriculas.txt # Arquivo de dados de matrículas  
+├── turmas.txt # Arquivo de dados das turmas  
+└── README.md # Este arquivo  
 
 
 5. **Versão do JAVA utilizada:**  
@@ -73,13 +65,13 @@ ep1-OO-2025_1--Elias-Gomes-Sobrinho-241011706/
 ## Prints da Execução
 
 1. Menu Principal:  
-   ![Inserir Print 1](ep1-OO-2025_1--Elias-Gomes-Sobrinho-241011706\Trabalho1-OO-EliasSobrinho241011706\src\UtilidadesEAfins\print1.png)
+   ![Inserir Print 1](Trabalho1-OO-EliasSobrinho241011706/src/UtilidadesEAfins/print1.png)
 
 2. Cadastro de Aluno:  
-   ![Inserir Print 2](ep1-OO-2025_1--Elias-Gomes-Sobrinho-241011706\Trabalho1-OO-EliasSobrinho241011706\src\UtilidadesEAfins\print2.png)
+   ![Inserir Print 2](Trabalho1-OO-EliasSobrinho241011706/src/UtilidadesEAfins/print2.png)
 
 3. Relatório de Frequência/Notas:  
-   ![Inserir Print 3](ep1-OO-2025_1--Elias-Gomes-Sobrinho-241011706\Trabalho1-OO-EliasSobrinho241011706\src\UtilidadesEAfins\print3.png)
+   ![Inserir Print 3](Trabalho1-OO-EliasSobrinho241011706/src/UtilidadesEAfins/print3.png)
 
 ---
 
