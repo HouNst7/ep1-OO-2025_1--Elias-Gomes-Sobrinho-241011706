@@ -19,25 +19,44 @@ O enunciado do trabalho pode ser encontrado aqui:
 ## Instruções para Compilação e Execução
 
 1. **Compilação:**  
+   Clone este repositório: https://github.com/HouNst7/ep1-OO-2025_1--Elias-Gomes-Sobrinho-241011706
+   
    javac Main.java
    [Descrever aqui como compilar o projeto. Exemplo: `javac Main.java` ou o script usado]
 
 2. **Execução:**  
-   Baixar esse meu repositório, abrir no IntelliJ ou no Visual Studio Code
-   Abrir a pasta SRC, clicar na Main e compilar.
-   [Descrever aqui como executar o projeto. Exemplo: `java Main` ou o script usado]
+   Abra a pasta do projeto em uma IDE como IntelliJ ou o VSCode, execute o arquivo Main.java localizado dentro da pasta src na IDE de sua preferência.
+   Diretório para chegar na Main: ep1-OO-2025_1--Elias-Gomes-Sobrinho-241011706/Trabalho1-OO-EliasSobrinho241011706/src/Main.java
+   
 
 4. **Estrutura de Pastas:**  
-   [Descrever aqui as principais pastas do projeto]
-   src/
-   ├── Main.java
-   ├── Aluno/
-   │   ├── Aluno.java
-   │   ├── AlunoEspecial.java
-   │   └── GerenciadorAlunos.java
-   ├── Avaliacao_Frequencia/
-   ├── Disciplina_Turma/
-   ├── UtilidadesEAfins/
+
+ep1-OO-2025_1--Elias-Gomes-Sobrinho-241011706/
+├── .idea/ # Configurações do IntelliJ IDEA
+├── out/ # Arquivos compilados
+├── Trabalho1-OO-EliasSobrinho241011706/
+│ ├── src/
+│ │ ├── Main.java
+│ │ ├── Aluno/
+│ │ │ ├── Aluno.java
+│ │ │ ├── AlunoEspecial.java
+│ │ │ └── GerenciadorAlunos.java
+│ │ ├── Avaliacao_Frequencia/
+│ │ │ ├── Avaliacao.java
+│ │ │ ├── Frequencia.java
+│ │ │ ├── GerenciadorPerformanceAluno.java
+│ │ │ └── AvaliacaoTipo.java (enum)
+│ │ └── Disciplina_Turma/
+│ │ ├── Disciplina.java
+│ │ ├── GerenciadorDisciplinas.java
+│ │ ├── GerenciadorTurmas.java
+│ │ └── Turma.java
+├── alunos.txt # Arquivo de dados dos alunos
+├── avaliacoes.txt # Arquivo de dados de avaliações
+├── disciplinas.txt # Arquivo de dados das disciplinas
+├── matriculas.txt # Arquivo de dados de matrículas
+├── turmas.txt # Arquivo de dados das turmas
+└── README.md # Este arquivo
 
 
 5. **Versão do JAVA utilizada:**  
@@ -54,27 +73,27 @@ O enunciado do trabalho pode ser encontrado aqui:
 ## Prints da Execução
 
 1. Menu Principal:  
-   ![Inserir Print 1](caminho/do/print1.png)
+   ![Inserir Print 1](ep1-OO-2025_1--Elias-Gomes-Sobrinho-241011706\Trabalho1-OO-EliasSobrinho241011706\src\UtilidadesEAfins\print1.png)
 
 2. Cadastro de Aluno:  
-   ![Inserir Print 2](caminho/do/print2.png)
+   ![Inserir Print 2](ep1-OO-2025_1--Elias-Gomes-Sobrinho-241011706\Trabalho1-OO-EliasSobrinho241011706\src\UtilidadesEAfins\print2.png)
 
 3. Relatório de Frequência/Notas:  
-   ![Inserir Print 3](caminho/do/print3.png)
+   ![Inserir Print 3](ep1-OO-2025_1--Elias-Gomes-Sobrinho-241011706\Trabalho1-OO-EliasSobrinho241011706\src\UtilidadesEAfins\print3.png)
 
 ---
 
 ## Principais Funcionalidades Implementadas
 
-- [✓] Cadastro, listagem, matrícula e trancamento de alunos (Normais e Especiais)
-- [✓] Cadastro de disciplinas e criação de turmas (presenciais e remotas)
-- [✓] Matrícula de alunos em turmas, respeitando vagas e pré-requisitos
+- [X] Cadastro, listagem, matrícula e trancamento de alunos (Normais e Especiais)
+- [X] Cadastro de disciplinas e criação de turmas (presenciais e remotas)
+- [X] Matrícula de alunos em turmas, respeitando vagas e pré-requisitos
 - [incompleto] Lançamento de notas e controle de presença
-- [✓] Cálculo de média final e verificação de aprovação/reprovação
-- [X] Relatórios de desempenho acadêmico por aluno, turma e disciplina
-- [✓] Persistência de dados em arquivos (.txt ou .csv)
-- [✓] Tratamento de duplicidade de matrículas
-- [✓] Uso de herança, polimorfismo e encapsulamento
+- [X] Cálculo de média final e verificação de aprovação/reprovação
+- [não realizado] Relatórios de desempenho acadêmico por aluno, turma e disciplina
+- [X] Persistência de dados em arquivos (.txt ou .csv)
+- [X] Tratamento de duplicidade de matrículas
+- [X] Uso de herança, polimorfismo e encapsulamento
 
 ---
 
